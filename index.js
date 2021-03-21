@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import Postgres from 'pg';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -47,6 +48,7 @@ app.use(
     extended: true,
   })
 )
+app.use(cors());
 
 app.get('/', getProducts)
 app.get('/products', getProducts)
